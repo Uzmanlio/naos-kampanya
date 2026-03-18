@@ -1,0 +1,260 @@
+.footer {
+  background-color: #F4F4F4;
+}
+
+/* Icon Section */
+.footer-icons {
+  background-color: #F4F4F4;
+  padding: 3rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.footer-icons-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.icon-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-item img {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.icon-item p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #323232;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Main Footer */
+.footer-main {
+  background-color: #F4F4F4;
+  color: #323232;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #323232;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #323232;
+  letter-spacing: 1px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #323232;
+}
+
+.footer-section p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.newsletter {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #323232;
+  border-radius: 0;
+  font-size: 0.9rem;
+}
+
+.newsletter input::placeholder {
+  color: #999;
+}
+
+.newsletter input:focus {
+  outline: none;
+  border-color: #2c5f7c;
+}
+
+.newsletter button {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: #323232;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  min-width: 60px;
+}
+
+.newsletter button:hover {
+  background-color: #e0e0e0;
+}
+
+.footer-privacy {
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.footer-privacy label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.footer-privacy input[type="checkbox"] {
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.footer-privacy a {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.footer-privacy a:hover {
+  text-decoration: underline;
+}
+
+.footer-app-stores {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-app-stores a {
+  display: block;
+}
+
+.footer-app-stores img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .footer-icons-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-icons-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .icon-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-item p {
+    font-size: 0.75rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1;
+  }
+
+  .footer-logo {
+    width: 150px;
+  }
+
+  .newsletter {
+    flex-direction: column;
+  }
+
+  .newsletter button {
+    width: 100%;
+  }
+
+  .footer-app-stores {
+    flex-direction: column;
+  }
+
+  .footer-app-stores img {
+    width: 150px;
+    height: auto;
+  }
+}

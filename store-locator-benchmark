@@ -1,0 +1,1011 @@
+<!-- NAOS Eczane Bulucu - Ticimax Uyumlu --><meta charset="UTF-8">
+<style type="text/css">.naos-container {
+    display: flex;
+    gap: 0;
+    min-height: 600px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+.naos-sidebar {
+    width: 320px;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+}
+.naos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.naos-sidebar-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+.naos-clear-filters {
+    font-size: 13px;
+    color: #ef4444;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.naos-clear-filters:hover {
+    text-decoration: underline;
+}
+.naos-clear-filters.visible {
+    display: flex;
+}
+.naos-form-group {
+    margin-bottom: 12px;
+}
+/* Combobox: arama dropdown içinde */
+.naos-combobox {
+    position: relative;
+    width: 100%;
+}
+.naos-combobox-trigger {
+    width: 100%;
+    padding: 12px 36px 12px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    box-sizing: border-box;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+.naos-combobox-trigger:hover { border-color: #d1d5db; }
+.naos-combobox-trigger:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+.naos-combobox-trigger[aria-expanded="true"] {
+    border-color: #3b82f6;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.naos-combobox.disabled .naos-combobox-trigger {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.naos-combobox-placeholder { color: #9ca3af; }
+.naos-combobox-dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 100;
+    border: 1px solid #3b82f6;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-height: 260px;
+    flex-direction: column;
+}
+.naos-combobox-dropdown.open {
+    display: flex;
+}
+.naos-combobox-search {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 10px 10px 10px 36px;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 0;
+    font-size: 13px;
+    box-sizing: border-box;
+    background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 10px center;
+}
+.naos-combobox-search:focus {
+    outline: none;
+    background-color: #fff;
+}
+.naos-combobox-search::placeholder { color: #9ca3af; }
+.naos-combobox-list {
+    overflow-y: auto;
+    max-height: 200px;
+    padding: 4px 0;
+}
+.naos-combobox-item {
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+.naos-combobox-item:hover {
+    background: #f3f4f6;
+}
+.naos-combobox-item.hidden { display: none; }
+.naos-combobox-native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    left: -9999px;
+}
+.naos-input,
+.naos-select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.naos-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+.naos-input:focus,
+.naos-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+.naos-input::placeholder {
+    color: #9ca3af;
+}
+.naos-select:disabled {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+.naos-pharmacy-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 20px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+.naos-pharmacy-list {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 450px;
+}
+.naos-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+.naos-empty-state p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #3b82f6;
+}
+.naos-empty-state small {
+    color: #9ca3af;
+    font-size: 12px;
+}
+.naos-pharmacy-item {
+    padding: 14px;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.naos-pharmacy-item:hover {
+    background: #f9fafb;
+    border-left-color: #17396D;
+}
+.naos-pharmacy-item.active {
+    background: #eff6ff;
+    border-left-color: #17396D;
+}
+.naos-pharmacy-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1f2937;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+.naos-pharmacy-brands {
+    margin-bottom: 8px;
+}
+.naos-brand-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+.naos-brand-bioderma { background: #E5E7EB; color: #1F2937; }
+.naos-brand-esthederm { background: #E5E7EB; color: #1F2937; }
+.naos-brand-etatpur { background: #E5E7EB; color: #1F2937; }
+.naos-pharmacy-address {
+    font-size: 12px;
+    color: #3b82f6;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+.naos-pharmacy-distance {
+    font-size: 12px;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.naos-pharmacy-distance::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: #9ca3af;
+    border-radius: 50%;
+}
+.naos-pharmacy-phone {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+.naos-map-container {
+    flex: 1;
+    min-height: 600px;
+    position: relative;
+}
+#naos-map {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    background: #e5e7eb;
+}
+.naos-toggle-sidebar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 48px;
+    background: #fff;
+    border: none;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+}
+.naos-toggle-sidebar:hover {
+    background: #f9fafb;
+}
+.naos-loading {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+    font-size: 14px;
+}
+.naos-result-count {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f3f4f6;
+}
+.naos-map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 600px;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
+@media (max-width: 768px) {
+    .naos-container { flex-direction: column; }
+    .naos-sidebar { width: 100%; max-height: 50vh; }
+    .naos-map-container { min-height: 400px; }
+    #naos-map { min-height: 400px; }
+    .naos-toggle-sidebar { display: none; }
+}
+</style>
+<div class="naos-container"><!-- Sol Panel - Filtreler -->
+<div class="naos-sidebar" id="naos-sidebar">
+<div class="naos-header">
+<div class="naos-sidebar-title">Filtrele</div>
+<button type="button" class="naos-clear-filters" id="naos-clear-filters" onclick="naosApp.clearAllFilters(event)"><span>✕</span> Filtreleri temizle</button></div>
+
+<div class="naos-form-group"><input class="naos-input" id="naos-search" placeholder="Eczane ara" type="text" /></div>
+
+<div class="naos-form-group naos-combobox" id="naos-city-combobox">
+    <button type="button" class="naos-combobox-trigger" id="naos-city-trigger" aria-haspopup="listbox" aria-expanded="false"><span class="naos-combobox-placeholder">İl seçiniz</span></button>
+    <div class="naos-combobox-dropdown" id="naos-city-dropdown" role="listbox">
+        <input type="text" class="naos-combobox-search" id="naos-city-search" placeholder="İl ara..." autocomplete="off" />
+        <div class="naos-combobox-list" id="naos-city-list"></div>
+    </div>
+    <select class="naos-select naos-combobox-native" id="naos-city" aria-hidden="true" tabindex="-1"><option value="">İl seçiniz</option></select>
+</div>
+
+<div class="naos-form-group naos-combobox disabled" id="naos-county-combobox">
+    <button type="button" class="naos-combobox-trigger" id="naos-county-trigger" aria-haspopup="listbox" aria-expanded="false" disabled><span class="naos-combobox-placeholder">İlçe seçiniz</span></button>
+    <div class="naos-combobox-dropdown" id="naos-county-dropdown" role="listbox">
+        <input type="text" class="naos-combobox-search" id="naos-county-search" placeholder="İlçe ara..." autocomplete="off" />
+        <div class="naos-combobox-list" id="naos-county-list"></div>
+    </div>
+    <select class="naos-select naos-combobox-native" id="naos-county" aria-hidden="true" tabindex="-1" disabled><option value="">İlçe seçiniz</option></select>
+</div>
+
+<div class="naos-form-group"><select class="naos-select" id="naos-brand"><option value="">Marka seçiniz</option><option value="all">Tümü</option><option value="bioderma">Bioderma</option><option value="esthederm">Institut Esthederm</option><option value="etatpur">Etat Pur</option> </select></div>
+
+<div class="naos-pharmacy-title">Yetkili Eczaneler</div>
+
+<div class="naos-pharmacy-list" id="naos-pharmacy-list">
+<div class="naos-empty-state">
+<p>Eczaneleri görüntülemek için lütfen filtre uygulayın</p>
+<small>Şehir, ilçe, marka seçin veya eczane adı arayın</small></div>
+</div>
+</div>
+
+<div class="naos-map-container">
+<div id="naos-map">
+<div class="naos-map-placeholder" id="naos-map-placeholder">Harita yükleniyor...</div>
+</div>
+</div>
+</div>
+<script>
+var naosApp = (function() {
+    // ==================== KONFİGÜRASYON ====================
+    // Bu değerleri kendi ortamınıza göre değiştirin
+    var CONFIG = {
+        baseUrl: 'https://api2.naosstars.com',           // API base URL
+        apiPassword: 'naos2024api',                  // API şifresi
+        googleMapsKey: 'AIzaSyA0gm-sEzcykKxz-JqfPvGbnR47pTKHkRI',                           // Google Maps API Key (boş bırakılırsa harita yüklenmez)
+        defaultCenter: { lat: 39.9334, lng: 32.8597 },
+        defaultZoom: 6
+    };
+    // =======================================================
+
+    var map = null;
+    var markers = [];
+    var allPharmacies = [];
+    var cities = {};
+    var sortedCitiesList = []; // il arama için tam liste
+    var infoWindow = null;
+    var userLocation = null;
+    var sidebarVisible = true;
+    var mapsLoaded = false;
+
+    // DOM elementleri
+    var searchInput = document.getElementById('naos-search');
+    var citySelect = document.getElementById('naos-city');
+    var countySelect = document.getElementById('naos-county');
+    var cityTrigger = document.getElementById('naos-city-trigger');
+    var cityDropdown = document.getElementById('naos-city-dropdown');
+    var cityListEl = document.getElementById('naos-city-list');
+    var citySearchInput = document.getElementById('naos-city-search');
+    var countyTrigger = document.getElementById('naos-county-trigger');
+    var countyDropdown = document.getElementById('naos-county-dropdown');
+    var countyListEl = document.getElementById('naos-county-list');
+    var countySearchInput = document.getElementById('naos-county-search');
+    var cityCombobox = document.getElementById('naos-city-combobox');
+    var countyCombobox = document.getElementById('naos-county-combobox');
+    var brandSelect = document.getElementById('naos-brand');
+    var pharmacyList = document.getElementById('naos-pharmacy-list');
+    var clearFiltersBtn = document.getElementById('naos-clear-filters');
+    var mapPlaceholder = document.getElementById('naos-map-placeholder');
+
+    // API URL oluştur
+    function getApiUrl(params) {
+        params = params || {};
+        var queryParts = ['password=' + encodeURIComponent(CONFIG.apiPassword)];
+        if (params.name) queryParts.push('name=' + encodeURIComponent(params.name));
+        if (params.city) queryParts.push('city=' + encodeURIComponent(params.city));
+        if (params.county) queryParts.push('county=' + encodeURIComponent(params.county));
+        if (params.brand) queryParts.push('brand=' + encodeURIComponent(params.brand));
+        
+        return CONFIG.baseUrl + '/api_test.php?' + queryParts.join('&');
+    }
+
+    // Google Maps yükle
+    function loadGoogleMaps() {
+        if (!CONFIG.googleMapsKey) {
+            if (mapPlaceholder) {
+                mapPlaceholder.innerHTML = '<div>Harita için Google Maps API Key gerekli.<br><small>CONFIG.googleMapsKey değerini ayarlayın.</small></div>';
+            }
+            return;
+        }
+
+        if (typeof google !== 'undefined' && google.maps) {
+            initMap();
+            return;
+        }
+        
+        var script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + CONFIG.googleMapsKey + '&callback=naosApp.initMap&loading=async&language=tr';
+        script.async = true;
+        script.defer = true;
+        script.onerror = function() {
+            if (mapPlaceholder) {
+                mapPlaceholder.innerHTML = '<div>Google Maps yüklenemedi.<br><small>API Key\'i kontrol edin.</small></div>';
+            }
+        };
+        document.head.appendChild(script);
+    }
+
+    // Harita başlat
+    function initMap() {
+        if (mapPlaceholder) {
+            mapPlaceholder.style.display = 'none';
+        }
+        
+        map = new google.maps.Map(document.getElementById('naos-map'), {
+            center: CONFIG.defaultCenter,
+            zoom: CONFIG.defaultZoom,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                position: google.maps.ControlPosition.TOP_LEFT
+            },
+            fullscreenControl: true,
+            streetViewControl: true
+        });
+        infoWindow = new google.maps.InfoWindow();
+        mapsLoaded = true;
+        
+        // Kullanıcı konumunu al
+        getUserLocation();
+    }
+
+    // Kullanıcı konumunu al
+    function getUserLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    if (map) {
+                        map.setCenter(userLocation);
+                        map.setZoom(11);
+                        
+                        // Kullanıcı konumu marker
+                        new google.maps.Marker({
+                            position: userLocation,
+                            map: map,
+                            icon: {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                scale: 8,
+                                fillColor: '#4285F4',
+                                fillOpacity: 1,
+                                strokeColor: '#fff',
+                                strokeWeight: 2
+                            },
+                            title: 'Konumunuz'
+                        });
+                    }
+                },
+                function(error) {
+                    console.log('Konum alınamadı:', error.message);
+                }
+            );
+        }
+    }
+
+    // İki nokta arası mesafe (km)
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        var R = 6371;
+        var dLat = (lat2 - lat1) * Math.PI / 180;
+        var dLon = (lon2 - lon1) * Math.PI / 180;
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
+
+    // API'den veri çek
+    function fetchPharmacies(params, callback) {
+        var url = getApiUrl(params);
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data.success) {
+                            callback(data.data || []);
+                        } else {
+                            callback([]);
+                        }
+                    } catch (e) {
+                        console.error('JSON parse hatası:', e);
+                        callback([]);
+                    }
+                } else {
+                    console.error('API Hatası:', xhr.status);
+                    callback([]);
+                }
+            }
+        };
+        xhr.onerror = function() {
+            console.error('Bağlantı hatası');
+            callback([]);
+        };
+        xhr.send();
+    }
+
+    // Şehirleri API'den çekip listele
+    function loadCitiesFromApi() {
+        pharmacyList.innerHTML = '<div class="naos-loading">Yükleniyor...</div>';
+        
+        // Tüm eczaneleri çek
+        fetchPharmacies({ brand: 'all' }, function(data) {
+            allPharmacies = data;
+            
+            // Şehir ve ilçeleri çıkar
+            cities = {};
+            allPharmacies.forEach(function(p) {
+                if (p.City && p.City.Name) {
+                    var cityName = p.City.Name;
+                    if (!cities[cityName]) {
+                        cities[cityName] = [];
+                    }
+                    if (p.County && p.County.Name) {
+                        if (cities[cityName].indexOf(p.County.Name) === -1) {
+                            cities[cityName].push(p.County.Name);
+                        }
+                    }
+                }
+            });
+
+            // İlçeleri sırala
+            Object.keys(cities).forEach(function(city) {
+                cities[city].sort(function(a, b) { return a.localeCompare(b, 'tr'); });
+            });
+
+            sortedCitiesList = Object.keys(cities).sort(function(a, b) { return a.localeCompare(b, 'tr'); });
+            renderCityOptions(sortedCitiesList);
+            setComboboxTriggerText(cityTrigger, '');
+            setComboboxTriggerText(countyTrigger, '');
+            closeAllComboboxes();
+
+            showEmptyState();
+        });
+    }
+
+    // İl option'ları: hem native select hem combobox listesi
+    function renderCityOptions(cityList) {
+        var list = cityList || [];
+        citySelect.innerHTML = '<option value="">İl seçiniz</option>';
+        list.forEach(function(city) {
+            citySelect.innerHTML += '<option value="' + city + '">' + city + '</option>';
+        });
+        cityListEl.innerHTML = list.map(function(city) {
+            return '<div class="naos-combobox-item" data-value="' + city.replace(/"/g, '&quot;') + '">' + city + '</div>';
+        }).join('');
+    }
+
+    // İlçe option'ları
+    function renderCountyOptions(countyList) {
+        var list = countyList || [];
+        countySelect.innerHTML = '<option value="">İlçe seçiniz</option>';
+        list.forEach(function(county) {
+            countySelect.innerHTML += '<option value="' + county + '">' + county + '</option>';
+        });
+        countyListEl.innerHTML = list.map(function(county) {
+            return '<div class="naos-combobox-item" data-value="' + county.replace(/"/g, '&quot;') + '">' + county + '</div>';
+        }).join('');
+    }
+
+    // Combobox dropdown aç/kapa
+    function openCityDropdown() {
+        countyDropdown.classList.remove('open');
+        countyTrigger.setAttribute('aria-expanded', 'false');
+        cityDropdown.classList.add('open');
+        cityTrigger.setAttribute('aria-expanded', 'true');
+        citySearchInput.value = '';
+        filterComboboxList(cityListEl, '');
+        citySearchInput.focus();
+    }
+    function openCountyDropdown() {
+        cityDropdown.classList.remove('open');
+        cityTrigger.setAttribute('aria-expanded', 'false');
+        countyDropdown.classList.add('open');
+        countyTrigger.setAttribute('aria-expanded', 'true');
+        countySearchInput.value = '';
+        filterComboboxList(countyListEl, '');
+        countySearchInput.focus();
+    }
+    function closeAllComboboxes() {
+        cityDropdown.classList.remove('open');
+        countyDropdown.classList.remove('open');
+        cityTrigger.setAttribute('aria-expanded', 'false');
+        countyTrigger.setAttribute('aria-expanded', 'false');
+    }
+    function filterComboboxList(listContainer, term) {
+        var items = listContainer.querySelectorAll('.naos-combobox-item');
+        term = (term || '').trim().toLowerCase();
+        items.forEach(function(el) {
+            var text = (el.textContent || '').trim().toLowerCase();
+            el.classList.toggle('hidden', term && text.indexOf(term) === -1);
+        });
+    }
+
+    // İlçeleri listele (il değişince)
+    function populateCounties(cityName) {
+        if (cityName && cities[cityName]) {
+            renderCountyOptions(cities[cityName]);
+            countySelect.disabled = false;
+            countyCombobox.classList.remove('disabled');
+            countyTrigger.disabled = false;
+            countySearchInput.value = '';
+            setComboboxTriggerText(countyTrigger, '');
+        } else {
+            countySelect.disabled = true;
+            countyCombobox.classList.add('disabled');
+            countyTrigger.disabled = true;
+            countySearchInput.value = '';
+            renderCountyOptions([]);
+            setComboboxTriggerText(countyTrigger, '');
+        }
+    }
+    function setComboboxTriggerText(trigger, value) {
+        var span = trigger.querySelector('span');
+        if (span) {
+            span.textContent = value || trigger === cityTrigger ? 'İl seçiniz' : 'İlçe seçiniz';
+            span.classList.toggle('naos-combobox-placeholder', !value);
+        }
+    }
+
+    // Boş durum göster
+    function showEmptyState() {
+        pharmacyList.innerHTML = 
+            '<div class="naos-empty-state">' +
+                '<p>Eczaneleri görüntülemek için lütfen filtre uygulayın</p>' +
+                '<small>Şehir, ilçe, marka seçin veya eczane adı arayın</small>' +
+            '</div>';
+    }
+
+    // Eczane listesini güncelle
+    function updatePharmacyList(data) {
+        if (!data || data.length === 0) {
+            pharmacyList.innerHTML = 
+                '<div class="naos-empty-state">' +
+                    '<p>Eczane bulunamadı</p>' +
+                    '<small>Farklı filtreler deneyin</small>' +
+                '</div>';
+            return;
+        }
+
+        // Mesafeye göre sırala
+        if (userLocation) {
+            data.forEach(function(p) {
+                if (p.Xaxis && p.Yaxis) {
+                    p._distance = calculateDistance(
+                        userLocation.lat, userLocation.lng,
+                        parseFloat(p.Xaxis), parseFloat(p.Yaxis)
+                    );
+                } else {
+                    p._distance = 99999;
+                }
+            });
+            data.sort(function(a, b) { return a._distance - b._distance; });
+        }
+
+        var html = '<div class="naos-result-count">' + data.length + ' eczane bulundu</div>';
+        
+        data.forEach(function(p, index) {
+            var distanceText = '';
+            if (userLocation && p._distance < 99999) {
+                distanceText = p._distance.toFixed(1) + ' km uzaklıkta';
+            }
+            
+            var brandsHtml = '';
+            if (p.Brands && p.Brands.length) {
+                brandsHtml = '<div class="naos-pharmacy-brands">';
+                p.Brands.forEach(function(b) {
+                    brandsHtml += '<span class="naos-brand-tag naos-brand-' + getBrandClass(b) + '">' + b + '</span>';
+                });
+                brandsHtml += '</div>';
+            }
+            
+            html += 
+                '<div class="naos-pharmacy-item" data-index="' + index + '">' +
+                    '<div class="naos-pharmacy-name">' + (p.Name || '-') + '</div>' +
+                    brandsHtml +
+                    '<div class="naos-pharmacy-address">' + (p.AddressDetail || '-') + '</div>' +
+                    (distanceText ? '<div class="naos-pharmacy-distance">' + distanceText + '</div>' : '') +
+                '</div>';
+        });
+
+        pharmacyList.innerHTML = html;
+
+        // Tıklama olayları
+        var items = document.querySelectorAll('.naos-pharmacy-item');
+        items.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var index = parseInt(this.getAttribute('data-index'));
+                focusPharmacy(data[index], index);
+            });
+        });
+    }
+
+    // Brand class adı
+    function getBrandClass(brand) {
+        var lower = brand.toLowerCase();
+        if (lower.indexOf('bioderma') !== -1) return 'bioderma';
+        if (lower.indexOf('esthederm') !== -1) return 'esthederm';
+        if (lower.indexOf('etat') !== -1 || lower.indexOf('pur') !== -1) return 'etatpur';
+        return 'bioderma';
+    }
+
+    // Haritada marker'ları güncelle
+    function updateMarkers(data) {
+        // Mevcut marker'ları temizle
+        markers.forEach(function(m) { m.setMap(null); });
+        markers = [];
+
+        if (!data || data.length === 0 || !map || !mapsLoaded) return;
+
+        var bounds = new google.maps.LatLngBounds();
+
+        data.forEach(function(p, index) {
+            if (p.Xaxis && p.Yaxis) {
+                var position = { lat: parseFloat(p.Xaxis), lng: parseFloat(p.Yaxis) };
+                var marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: p.Name,
+                    icon: {
+                        url: 'data:image/svg+xml,' + encodeURIComponent(
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">' +
+                                '<path d="M16 0C7.163 0 0 7.163 0 16c0 12 16 24 16 24s16-12 16-24C32 7.163 24.837 0 16 0z" fill="#EF4444"/>' +
+                                '<circle cx="16" cy="16" r="8" fill="#fff"/>' +
+                            '</svg>'
+                        ),
+                        scaledSize: new google.maps.Size(32, 40),
+                        anchor: new google.maps.Point(16, 40)
+                    }
+                });
+
+                (function(pharmacy, idx) {
+                    marker.addListener('click', function() {
+                        var distanceText = '';
+                        if (userLocation && pharmacy._distance < 99999) {
+                            distanceText = '<div style="font-size:11px;color:#666;margin-top:4px;">' + pharmacy._distance.toFixed(1) + ' km uzaklıkta</div>';
+                        }
+                        var dirUrl = (pharmacy.Xaxis && pharmacy.Yaxis) ? 'https://www.google.com/maps/dir/?api=1&destination=' + pharmacy.Xaxis + ',' + pharmacy.Yaxis + '&travelmode=driving' : '';
+                        var tel = (pharmacy.Telephone1 || '').replace(/\s/g, '');
+                        var btnStyle = 'display:inline-block;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;margin-right:8px;margin-top:4px;';
+                        var btnDir = dirUrl ? '<a href="' + dirUrl + '" target="_blank" rel="noopener" style="' + btnStyle + 'background:#17396D;color:#fff;">Yol tarifi al</a>' : '';
+                        var btnCall = tel ? '<a href="tel:' + tel + '" style="' + btnStyle + 'background:#059669;color:#fff;">Ara</a>' : '';
+                        var btnRow = (btnDir || btnCall) ? '<div style="margin-top:10px;">' + btnDir + btnCall + '</div>' : '';
+
+                        infoWindow.setContent(
+                            '<div class="naos-popup-card" style="padding:10px;max-width:280px;">' +
+                                '<strong style="font-size:13px;color:#1f2937;">' + (pharmacy.Name || '') + '</strong>' +
+                                '<div style="font-size:12px;color:#3b82f6;margin:6px 0;">' + (pharmacy.AddressDetail || '') + '</div>' +
+                                (pharmacy.Telephone1 ? '<div style="font-size:12px;color:#059669;">' + pharmacy.Telephone1 + '</div>' : '') +
+                                distanceText +
+                                btnRow +
+                            '</div>'
+                        );
+                        infoWindow.open(map, marker);
+
+                        // Listede aktif yap
+                        var allItems = document.querySelectorAll('.naos-pharmacy-item');
+                        allItems.forEach(function(el) { el.classList.remove('active'); });
+                        var activeItem = document.querySelector('.naos-pharmacy-item[data-index="' + idx + '"]');
+                        if (activeItem) activeItem.classList.add('active');
+                    });
+                })(p, index);
+
+                markers.push(marker);
+                bounds.extend(position);
+            }
+        });
+
+        if (markers.length > 0) {
+            map.fitBounds(bounds);
+            if (markers.length === 1) {
+                map.setZoom(15);
+            }
+        }
+    }
+
+    // Eczaneye odaklan
+    function focusPharmacy(pharmacy, index) {
+        var allItems = document.querySelectorAll('.naos-pharmacy-item');
+        allItems.forEach(function(el) { el.classList.remove('active'); });
+        var activeItem = document.querySelector('.naos-pharmacy-item[data-index="' + index + '"]');
+        if (activeItem) activeItem.classList.add('active');
+
+        if (pharmacy.Xaxis && pharmacy.Yaxis && map && mapsLoaded) {
+            var position = { lat: parseFloat(pharmacy.Xaxis), lng: parseFloat(pharmacy.Yaxis) };
+            map.setCenter(position);
+            map.setZoom(16);
+            
+            if (markers[index]) {
+                google.maps.event.trigger(markers[index], 'click');
+            }
+        }
+    }
+
+    // Filtre durumunu kontrol et
+    function checkFilters() {
+        var hasFilters = searchInput.value.trim() || citySelect.value || countySelect.value || brandSelect.value;
+        if (hasFilters) {
+            clearFiltersBtn.classList.add('visible');
+        } else {
+            clearFiltersBtn.classList.remove('visible');
+        }
+    }
+
+    // Filtreleme
+    var debounceTimer;
+    var currentFilteredData = [];
+    
+    function applyFilters() {
+        checkFilters();
+        
+        var params = {
+            name: searchInput.value.trim(),
+            city: citySelect.value,
+            county: countySelect.value,
+            brand: brandSelect.value || 'all'
+        };
+
+        // En az bir filtre seçilmeli
+        if (!params.name && !params.city && !params.county && !params.brand) {
+            showEmptyState();
+            markers.forEach(function(m) { m.setMap(null); });
+            markers = [];
+            return;
+        }
+
+        pharmacyList.innerHTML = '<div class="naos-loading">Aranıyor...</div>';
+
+        fetchPharmacies(params, function(data) {
+            currentFilteredData = data;
+            updatePharmacyList(data);
+            updateMarkers(data);
+        });
+    }
+
+    // Tüm filtreleri temizle (Ticimax iframe içinde sayfa kaybolmasın diye event durdurulur)
+    function clearAllFilters(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        searchInput.value = '';
+        citySearchInput.value = '';
+        countySearchInput.value = '';
+        citySelect.value = '';
+        countySelect.value = '';
+        countySelect.disabled = true;
+        countyCombobox.classList.add('disabled');
+        countyTrigger.disabled = true;
+        setComboboxTriggerText(cityTrigger, '');
+        setComboboxTriggerText(countyTrigger, '');
+        closeAllComboboxes();
+        brandSelect.value = '';
+        if (sortedCitiesList.length) renderCityOptions(sortedCitiesList);
+        clearFiltersBtn.classList.remove('visible');
+        showEmptyState();
+        markers.forEach(function(m) { m.setMap(null); });
+        markers = [];
+        if (map && mapsLoaded) {
+            map.setCenter(userLocation || CONFIG.defaultCenter);
+            map.setZoom(userLocation ? 11 : CONFIG.defaultZoom);
+        }
+    }
+
+    // Sidebar toggle
+    function toggleSidebar() {
+        var sidebar = document.getElementById('naos-sidebar');
+        var toggle = document.getElementById('naos-toggle');
+        sidebarVisible = !sidebarVisible;
+        sidebar.style.display = sidebarVisible ? 'flex' : 'none';
+        toggle.innerHTML = sidebarVisible 
+            ? '<svg width="8" height="14" viewBox="0 0 8 14" fill="currentColor"><path d="M7 1L1 7l6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>'
+            : '<svg width="8" height="14" viewBox="0 0 8 14" fill="currentColor"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
+    }
+
+    // Event listener'lar
+    searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(applyFilters, 500);
+    });
+
+    // Combobox: il trigger tıklanınca dropdown aç, arama içinde
+    cityTrigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (cityDropdown.classList.contains('open')) closeAllComboboxes();
+        else openCityDropdown();
+    });
+    countyTrigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (countyTrigger.disabled) return;
+        if (countyDropdown.classList.contains('open')) closeAllComboboxes();
+        else openCountyDropdown();
+    });
+    citySearchInput.addEventListener('input', function() { filterComboboxList(cityListEl, this.value); });
+    citySearchInput.addEventListener('click', function(e) { e.stopPropagation(); });
+    countySearchInput.addEventListener('input', function() { filterComboboxList(countyListEl, this.value); });
+    countySearchInput.addEventListener('click', function(e) { e.stopPropagation(); });
+
+    cityListEl.addEventListener('click', function(e) {
+        var item = e.target.closest('.naos-combobox-item');
+        if (!item || item.classList.contains('hidden')) return;
+        var value = item.getAttribute('data-value');
+        citySelect.value = value;
+        setComboboxTriggerText(cityTrigger, value);
+        closeAllComboboxes();
+        populateCounties(value);
+        countySelect.value = '';
+        setComboboxTriggerText(countyTrigger, '');
+        applyFilters();
+    });
+    countyListEl.addEventListener('click', function(e) {
+        var item = e.target.closest('.naos-combobox-item');
+        if (!item || item.classList.contains('hidden')) return;
+        var value = item.getAttribute('data-value');
+        countySelect.value = value;
+        setComboboxTriggerText(countyTrigger, value);
+        closeAllComboboxes();
+        applyFilters();
+    });
+
+    cityDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
+    countyDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() { closeAllComboboxes(); });
+
+    brandSelect.addEventListener('change', applyFilters);
+
+    // Başlangıç
+    function init() {
+        loadGoogleMaps();
+        loadCitiesFromApi();
+    }
+
+    // Sayfa yüklendiğinde başlat
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Public API
+    return {
+        initMap: initMap,
+        clearAllFilters: clearAllFilters,
+        toggleSidebar: toggleSidebar
+    };
+})();
+</script>
