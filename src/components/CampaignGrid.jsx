@@ -9,7 +9,7 @@ const CampaignGrid = () => {
       subtitle: 'AYIN ÜRÜNÜ',
       highlight: 'ÖZEL FİYAT!',
       price: '399,90 TL',
-      description: '2250 TL ve üzeri alışverişe Makyaj Temizleme Micellar Suyu veya Süt - 200 ML',
+      description: '2250 TL ve üzeri alışverişe Yaş Yönetimi Ürünlerinde Hediye',
       bgColor: '#c8e6e6',
       textColor: '#2c5f7c',
       image: '/2.png'
@@ -21,7 +21,7 @@ const CampaignGrid = () => {
       subtitle: '',
       highlight: 'ÖZEL FİYATLAR!',
       price: '',
-      description: 'Yves Rocher ürünlerinde hediye setleri ve özel fırsatlar',
+      description: 'Esthederm ürünlerinde hediye setleri ve özel fırsatlar',
       bgColor: '#f9e8b8',
       textColor: '#8b6914',
       image: '/4.png'
@@ -33,7 +33,7 @@ const CampaignGrid = () => {
       subtitle: 'AVANTAJLI',
       highlight: 'FİYATLARLA OLUŞTUR!',
       price: '',
-      description: 'Pure Algae serisi ile cilt bakım rutininizi oluşturun',
+      description: 'Temizleyici bakım serisi ile cilt bakım rutininizi oluşturun',
       bgColor: '#d4ede8',
       textColor: '#1a6b5f',
       image: '/5.png'
